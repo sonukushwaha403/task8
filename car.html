@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="1.css" />
+    <title style="font-size: large; font-family:fantasy;">Vehicle Information</title>
+</head>
+<body>
+	<script>
+        function lw()
+{
+var i = document.getElementById("in1").value
+var xhr = new XMLHttpRequest();
+
+xhr.open("GET", "http://192.168.254.21/cgi-bin/car.py?x="+i, true);
+xhr.send();
+xhr.onload= function() {
+ 
+var output = xhr.responseText;
+document.getElementById("d2").innerHTML = output;
+}
+}
+    </script> 
+	<div class="d1">	
+    <br>
+    <b><h1>Licence Plate Info</h1></b>
+    <input type="text" id="in1" placeholder="License Plate number "><br><br>
+    <button style = "width: 170px;
+  display: block;
+  margin: 0px 150px;
+ 
+  color: #591BC5;
+  font-size: 17px;
+  border:1px solid #EFEEF5;
+  font-weight: 500;
+  background: #EFEEF5;
+  border-radius: 20px;
+  padding: 10px;
+  cursor:pointer;
+  transition: .3s;" onclick="lw()">SUBMIT</button>
+    </div>
+    <div id='d2'>output here</div>
+   </form>
+</body>
+</html>
